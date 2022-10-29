@@ -1,0 +1,104 @@
+/*
+  Project name(项目名称)：antiSamy_demo 
+  File name(文件名): form
+  Author(作者）: mao
+  Author QQ：1296193245
+  GitHub：https://github.com/maomao124/
+  Date(创建日期)： 2022/10/29 
+  Time(创建时间)： 20:54
+  Version(版本): 1.0
+  Description(描述)： 无
+ */
+
+
+/*表单位置*/
+div.form_position {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*表单的边框*/
+div.form {
+    border: 10px skyblue dotted;
+}
+
+
+/*表*/
+table {
+    width: 600px;
+    border-collapse: collapse;
+    color: #4edaff;
+    background-color: #ffe4da;
+    transition: all 1s linear 0s;
+}
+
+table:hover {
+    background-color: #b4ffab;
+    /*width: 800px;*/
+    /*transition: all 1s linear 0s;*/
+}
+
+
+/*设置字体*/
+td, input, input.input {
+    font-size: 30px;
+}
+
+input {
+    /*font-size: 24px;*/
+    /*width: 90%;*/
+    color: coral;
+}
+
+input.input {
+    width: 85%;
+    color: coral;
+    transition: all 0.5s linear 0s;
+}
+
+input.input:hover {
+    width: 98%;
+    transition: all 0.5s linear 0s;
+    background-color: #fcffee;
+}
+
+
+/*设置提示*/
+.prompt {
+    text-align: center;
+    width: 200px;
+    transition: all 1s linear 0.2s;
+}
+
+.prompt:hover {
+    transition: all 1s linear 0.2s;
+    color: #ff2e2f;
+}
+
+/*提交按钮*/
+input.submit {
+    color: #6739ff;
+}
+
+input.submit:hover {
+
+}
+
+/*最上面的字*/
+div.text {
+    border: 10px violet dotted;
+    text-align: center;
+    font-size: 32px;
+    color: tomato;
+    background: bisque;
+}
+
+/*最上面的字的位置*/
+div.text_position {
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
