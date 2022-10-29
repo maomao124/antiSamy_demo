@@ -1,0 +1,65 @@
+/*
+  Project name(项目名称)：antiSamy_demo 
+  File name(文件名): table
+  Author(作者）: mao
+  Author QQ：1296193245
+  GitHub：https://github.com/maomao124/
+  Date(创建日期)： 2022/10/29 
+  Time(创建时间)： 20:33
+  Version(版本): 1.0
+  Description(描述)： 无
+ */
+
+
+table {
+    width: 80%;
+    background: #ccc;
+    margin: 10px auto;
+    /*border-collapse CSS 属性设置<table>内的单元格是否具有共享或单独的边框。*/
+    /*collapse – 相邻单元格具有共享边框（折叠边框表格渲染模型）。*/
+    border-collapse: collapse;
+}
+
+th, td {
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border: 1px solid #ccc;
+    transition: all 0.4s linear 0s;
+}
+
+th {
+    background: #eee;
+    font-weight: normal;
+}
+
+tr {
+    background: #fff;
+    transition: all 2s linear 0s;
+}
+
+tr:hover {
+    background: aqua;
+    transition: all 0.4s linear 0s;
+}
+
+td:hover {
+    color: magenta;
+    transition: all 0.4s linear 0s;
+}
+
+td a {
+    color: #06f;
+    text-decoration: none;
+}
+
+td a:hover {
+    color: #06f;
+    text-decoration: underline;
+    /*transition: all 1s linear 0s;*/
+}
+
+caption {
+    color: #28ffc7;
+    font-size: 28px;
+}
