@@ -1,10 +1,12 @@
 package mao.antisamy_demo;
 
+import mao.antisamy_demo.service.XssFilterService;
 import mao.antisamy_demo.wrapper.XssRequestWrapper;
 import org.junit.jupiter.api.Test;
 import org.owasp.validator.html.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.InputStream;
@@ -45,4 +47,15 @@ class AntiSamyDemoApplicationTests
         System.out.println(xsshtml);
     }
 
+
+    @Autowired
+    private XssFilterService xssFilterService;
+
+    @Test
+    void test1() throws ScanException, PolicyException
+    {
+        String xsshtml = "hyf<script>alert(1)</script>";
+        String s = xssFilterService.xssClean(xsshtml);
+        System.out.println(s);
+    }
 }

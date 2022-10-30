@@ -3,6 +3,7 @@ package mao.antisamy_demo.wrapper;
 import org.owasp.validator.html.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -61,7 +62,7 @@ public class XssRequestWrapper extends HttpServletRequestWrapper
      * @param taintedHTML 需要进行过滤的数据
      * @return 返回过滤后的数据
      */
-    public String xssClean(String taintedHTML)
+    private String xssClean(String taintedHTML)
     {
         try
         {

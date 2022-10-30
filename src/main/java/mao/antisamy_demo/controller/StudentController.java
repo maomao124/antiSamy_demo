@@ -1,9 +1,11 @@
 package mao.antisamy_demo.controller;
 
 import mao.antisamy_demo.entity.Student;
+import mao.antisamy_demo.wrapper.XssRequestWrapper;
 import org.apache.juli.logging.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -30,6 +32,7 @@ public class StudentController
     private static final List<Student> list = Collections.synchronizedList(new ArrayList<>());
 
     private static final Logger log = LoggerFactory.getLogger(StudentController.class);
+
 
     @PostMapping("/init")
     public synchronized void init()
