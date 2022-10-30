@@ -1,6 +1,10 @@
 package mao.antisamy_demo.config;
 
+import mao.antisamy_demo.converter.XssStringJsonDeserializer;
 import mao.antisamy_demo.filter.XssFilter;
+import mao.antisamy_demo.service.XssFilterService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,14 +29,26 @@ import javax.servlet.DispatcherType;
 public class AntiSamyConfig
 {
     @Bean
-    public FilterRegistrationBean filterRegistrationBean()
+    public FilterRegistrationBean<XssFilter> filterRegistrationBean()
     {
-        FilterRegistrationBean filterRegistration = new FilterRegistrationBean(new XssFilter());
+        FilterRegistrationBean<XssFilter> filterRegistration = new FilterRegistrationBean<>(new XssFilter());
         filterRegistration.addUrlPatterns("/*");
         filterRegistration.setDispatcherTypes(DispatcherType.REQUEST);
         filterRegistration.setName("xssFilter");
-        filterRegistration.setOrder(10000);
+        filterRegistration.setOrder(1);
 
         return filterRegistration;
     }
+
+    /**
+     * 配置跨站攻击 反序列化处理器
+     *
+     * @return Jackson2ObjectMapperBuilderCustomizer
+     */
+    @Bean
+    public Jackson2ObjectMapperBuilderCustomizer jackson2ObjectMapperBuilderCustomizer2(@Autowired XssFilterService xssFilterService)
+    {
+        return builder -> builder.deserializerByType(String.class, new XssStringJsonDeserializer(xssFilterService));
+    }
+
 }
