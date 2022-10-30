@@ -1,0 +1,8 @@
+mao\antisamy_demo\entity\Student.class
+mao\antisamy_demo\AntiSamyDemoApplication.class
+mao\antisamy_demo\service\XssFilterService.class
+mao\antisamy_demo\config\AntiSamyConfig.class
+mao\antisamy_demo\converter\XssStringJsonDeserializer.class
+mao\antisamy_demo\controller\StudentController.class
+mao\antisamy_demo\filter\XssFilter.class
+mao\antisamy_demo\wrapper\XssRequestWrapper.class
