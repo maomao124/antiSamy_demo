@@ -52,6 +52,14 @@ public class StudentController
         return true;
     }
 
+    @PostMapping("/sync")
+    public boolean saveSync(Student student)
+    {
+        list.add(student);
+        log.info("添加成功：\n" + student);
+        return true;
+    }
+
     @GetMapping
     public List<Student> getAll()
     {
