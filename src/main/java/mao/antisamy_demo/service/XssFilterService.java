@@ -42,7 +42,6 @@ public class XssFilterService
             InputStream inputStream = XssRequestWrapper.class.getClassLoader().getResourceAsStream(antiSamyPath);
             assert inputStream != null;
             policy = Policy.getInstance(inputStream);
-            log.info("加载antisamy-ebay.xml");
         }
         catch (PolicyException e)
         {

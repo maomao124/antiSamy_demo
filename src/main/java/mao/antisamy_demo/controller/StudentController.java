@@ -1,6 +1,7 @@
 package mao.antisamy_demo.controller;
 
 import mao.antisamy_demo.entity.Student;
+import mao.antisamy_demo.service.XssFilterService;
 import mao.antisamy_demo.wrapper.XssRequestWrapper;
 import org.apache.juli.logging.Log;
 import org.slf4j.Logger;
@@ -33,6 +34,8 @@ public class StudentController
 
     private static final Logger log = LoggerFactory.getLogger(StudentController.class);
 
+    @Autowired
+    private XssFilterService xssFilterService;
 
     @PostMapping("/init")
     public synchronized void init()
@@ -47,13 +50,26 @@ public class StudentController
         log.info("初始化完成");
     }
 
+//    @PostMapping
+//    public boolean save(@RequestBody Student student)
+//    {
+//        list.add(student);
+//        log.info("添加成功：\n" + student);
+//        return true;
+//    }
+
+
     @PostMapping
     public boolean save(@RequestBody Student student)
     {
+        student.setName(xssFilterService.xssClean(student.getName()));
+        student.setSex(xssFilterService.xssClean(student.getSex()));
+
         list.add(student);
         log.info("添加成功：\n" + student);
         return true;
     }
+
 
     @PostMapping("/sync")
     public boolean saveSync(Student student)
